@@ -104,7 +104,7 @@ const popularnow = async () => {
 };
 const Toprated = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/tv/top_rated?api_key=${myApi}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/trending/tv/week?api_key=${myApi}&language=en-US&page=1`
   );
   const data = await res.json();
 
