@@ -104,7 +104,7 @@ const popularnow = async () => {
 };
 const Toprated = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=${myApi}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/tv/top_rated?api_key=${myApi}&language=en-US&page=1`
   );
   const data = await res.json();
 
@@ -162,17 +162,17 @@ const currpopularfun = (movie) => {
          </div>`;
 };
 const topratedmoviesfun = (movie) => {
-  let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
+  let url = "./TvShowsDetails.html?id=" + encodeURIComponent(movie.id);
   return `<div class="Top_rated_movies" >
     <a class="posterlink" href=${url}> <img class="poster" data-id="${
     movie.id
-  }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" 
+  }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"loading="lazy" 
   onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
-  loading="lazy" alt="${movie.title}"></a>
-         <p class="movie_title">${movie.title}</p>
+  alt="${movie.name}"></a>
+         <p class="movie_title">${movie.name}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(
-               movie.release_date
+               movie.first_air_date
              )}</p><span class="dot dot2"></span>
              <p class="rating">${
                movie.vote_average
@@ -181,7 +181,7 @@ const topratedmoviesfun = (movie) => {
                          <path
                              d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                      </svg></span></p>
-             <div class="category">Movie</div>
+             <div class="category">movie</div>
              </div>
          </div>`;
 };
