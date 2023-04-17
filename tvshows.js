@@ -123,7 +123,7 @@ const Secondpage = async () => {
 
 const airingTodayfun = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/tv/${category}?api_key=8cab626c05f8766826a37e476d07b229`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${myApi}&language=en-US&page=1`
   );
   const data = await res.json();
   let totalPages = data.total_pages;
