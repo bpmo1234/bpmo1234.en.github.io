@@ -83,7 +83,7 @@ menuulLI.forEach((item) => {
 });
 menuulLI[2].classList.add("hovered");
 
-const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
+const myApi = "8cab626c05f8766826a37e476d07b229";
 
 let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
@@ -124,7 +124,7 @@ const CurrTvshow = async (id) => {
 const CurrEpisode = async (tv_id, currSea, currEpiso) => {
   let episohtml;
   const res = await fetch(
-    `https://api.themoviedb.org/3/tv/${tv_id}/season/${currSea}/episode/${currEpiso}?api_key=6b2dec73b6697866a50cdaef60ccffcb`
+    `https://api.themoviedb.org/3/tv/${tv_id}/season/${currSea}/episode/${currEpiso}?api_key=8cab626c05f8766826a37e476d07b229`
   );
   const data = await res.json();
   episohtml = episodefun(data);

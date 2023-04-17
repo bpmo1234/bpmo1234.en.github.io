@@ -74,7 +74,7 @@ overlaySideNavabar.addEventListener("click", function () {
   document.body.classList.remove("minimize_siderbar");
 });
 
-const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
+const myApi = "8cab626c05f8766826a37e476d07b229";
 
 const NowPlaying = async () => {
   const res = await fetch(
@@ -87,7 +87,7 @@ const NowPlaying = async () => {
 
 const TodayTrending = async () => {
   const res = await fetch(
-    "https://api.themoviedb.org/3/trending/all/day?api_key=6b2dec73b6697866a50cdaef60ccffcb"
+    "https://api.themoviedb.org/3/trending/all/day?api_key=8cab626c05f8766826a37e476d07b229"
   );
   const data = await res.json();
   const trendingtoday = data.results;

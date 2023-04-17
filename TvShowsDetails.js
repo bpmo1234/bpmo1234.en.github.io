@@ -89,7 +89,7 @@ hamburger.addEventListener("click", function () {
   document.body.classList.add("minimize_siderbar");
 });
 
-const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
+const myApi = "8cab626c05f8766826a37e476d07b229";
 
 const Sidescroll = function (element, direction, speed, distance, step) {
   scrollAmount = 0;

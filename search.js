@@ -51,7 +51,7 @@ function settheme() {
 
 settheme();
 
-const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
+const myApi = "8cab626c05f8766826a37e476d07b229";
 
 const searchitem = async (srchquery) => {
   const res = await fetch(
