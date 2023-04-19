@@ -78,7 +78,7 @@ const myApi = "8cab626c05f8766826a37e476d07b229";
 
 const NowPlaying = async () => {
   const res = await fetch(
-    "https://api.themoviedb.org/4/trending/all/day?api_key=8cab626c05f8766826a37e476d07b229&language=en-US&page=1"
+    "https://api.themoviedb.org/3/trending/all/day?api_key=8cab626c05f8766826a37e476d07b229&language=en-US&page=1"
   );
   const data = await res.json();
   const NowPlayingmovies = data.results;
