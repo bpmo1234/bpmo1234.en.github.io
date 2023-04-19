@@ -119,7 +119,7 @@ const NowPlayingfun = (movie) => {
     <a class="posterlink" href="${
       data.media_type == "movie" ? url : url2
     }"data-id="${data.id}"> <img class="poster"
-   src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" 
+   src="https://image.tmdb.org/t/p/w500/${data.poster_path}" 
         onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
         loading="lazy" alt="${data.title}"></a>
          <p class="movie_title">${movie.title}</p>
