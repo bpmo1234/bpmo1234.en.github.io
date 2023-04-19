@@ -122,13 +122,13 @@ const NowPlayingfun = (movie) => {
    src="https://image.tmdb.org/t/p/w500/${data.poster_path}" 
         onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
         loading="lazy" alt="${data.title}"></a>
-         <p class="movie_title">${movie.title}</p>
+         <p class="movie_title">${data.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(
-               movie.release_date
+               data.release_date
              )}</p><span class="dot dot2"></span>
              <p class="rating">${
-               movie.vote_average
+               data.vote_average
              }<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
                          height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
                          <path
