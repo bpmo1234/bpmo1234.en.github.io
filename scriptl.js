@@ -121,7 +121,7 @@ const NowPlayingfun = (movie) => {
     }"data-id="${data.id}"> <img class="poster"
    src="https://image.tmdb.org/t/p/w500/${data.poster_path}" 
         onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
-        loading="lazy" alt="${data.title}"></a>
+        loading="lazy" alt="${data.title}">
          <p class="movie_title">${data.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(
@@ -136,6 +136,7 @@ const NowPlayingfun = (movie) => {
                      </svg></span></p>
              <div class="category">Movie</div>
              </div>
+			 </a>
          </div>`;
 };
 
