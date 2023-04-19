@@ -87,7 +87,7 @@ const NowPlaying = async () => {
 
 const TodayTrending = async () => {
   const res = await fetch(
-    "https://api.themoviedb.org/3/trending/all/day?api_key=8cab626c05f8766826a37e476d07b229"
+    "https://api.themoviedb.org/3/trending/all/week?api_key=8cab626c05f8766826a37e476d07b229"
   );
   const data = await res.json();
   const trendingtoday = data.results;
@@ -114,21 +114,19 @@ const Toprated = async () => {
 
 const NowPlayingfun = (movie) => {
   let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
-  let url2 = "./TvShowsDetails.html?id=" + encodeURIComponent(data.id);
   return `<div class="Now_playing_movies" >
-    <a class="posterlink" href="${
-      data.media_type == "movie" ? url : url2
-    }"data-id="${data.id}"> <img class="poster"
-   src="https://image.tmdb.org/t/p/w500/${data.poster_path}" 
+    <a class="posterlink" href=${url}> <img class="poster" data-id="${
+    movie.id
+  }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" 
         onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
-        loading="lazy" alt="${data.title}">
-         <p class="movie_title">${data.title}</p>
+        loading="lazy" alt="${movie.title}"></a>
+         <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(
-               data.release_date
+               movie.release_date
              )}</p><span class="dot dot2"></span>
              <p class="rating">${
-               data.vote_average
+               movie.vote_average
              }<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
                          height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
                          <path
@@ -136,7 +134,6 @@ const NowPlayingfun = (movie) => {
                      </svg></span></p>
              <div class="category">Movie</div>
              </div>
-			 </a>
          </div>`;
 };
 
