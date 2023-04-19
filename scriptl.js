@@ -114,12 +114,14 @@ const Toprated = async () => {
 
 const NowPlayingfun = (movie) => {
   let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
+  let url2 = "./TvShowsDetails.html?id=" + encodeURIComponent(data.id);
   return `<div class="Now_playing_movies" >
-    <a class="posterlink" href=${url}> <img class="poster" data-id="${
-    movie.id
-  }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" 
+    <a class="posterlink" href="${
+      data.media_type == "movie" ? url : url2
+    }"data-id="${data.id}"> <img class="poster"
+   src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" 
         onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
-        loading="lazy" alt="${movie.title}"></a>
+        loading="lazy" alt="${data.title}"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(
