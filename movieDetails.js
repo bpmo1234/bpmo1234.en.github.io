@@ -305,7 +305,7 @@ const html2 = function (moviee) {
         </div>
         <div class="playButtonContainer"> 
        
-        <a class="playLink" href="https://https://cinemafree.netlify.app/se_player.php?video_id=${moviee.imdb_id}">
+        <a class="playLink" href="https://cinemafree.netlify.app/se_player.php?video_id=${moviee.imdb_id}">
 		
 		<button class="play_btn"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
                 fill="currentColor" class="path_btn bi-play-fill" viewBox="0 0 16 16">
