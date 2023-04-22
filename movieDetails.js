@@ -313,6 +313,14 @@ const html2 = function (moviee) {
                     d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
                 </path>
             </svg>Play</button></a> 
+			<a class="playLink" href="https://almeet.000webhostapp.com/player.php?video_id=${moviee.imdb_id}">
+		
+		<button class="play_btn"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                fill="currentColor" class="path_btn bi-play-fill" viewBox="0 0 16 16">
+                <path class="path_btnn"
+                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
+                </path>
+            </svg>Play source 2</button></a> 
             <span > <a class="GoogleButton" href="https://www.google.com/search?q=${
               moviee.title +
               " " +
