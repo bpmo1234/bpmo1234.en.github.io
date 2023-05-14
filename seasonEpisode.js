@@ -1,3 +1,6 @@
+const posterBig = document.querySelector(".poster_big");
+const posterBigImg = document.querySelector(".poster_big_img");
+const posterBBig = document.querySelector(".posterbig");
 const searchResultDiv = document.querySelector(".search_result_div");
 const searchBtn = document.querySelector(".search");
 const searchHeader = document.getElementById("search_header");
@@ -31,6 +34,14 @@ overlaySideNavabar.addEventListener("click", function () {
   overlaySideNavabar.classList.remove("sidenav_container_active");
   document.body.classList.remove("minimize_siderbar");
   hamburgerPhone.classList.remove("hamburgerphonedeactive");
+});
+window.addEventListener("scroll", function () {
+  let intiCon = posterBBig.getBoundingClientRect();
+  if (window.scrollY > intiCon.height - 150) {
+    movieDetailnavContainer.classList.add("bgadd");
+  } else {
+    movieDetailnavContainer.classList.remove("bgadd");
+  }
 });
 
 const hideMsg = function () {
@@ -88,6 +99,9 @@ const myApi = "8cab626c05f8766826a37e476d07b229";
 let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
 let numberOfSeason = Number(url.slice(url.indexOf("Z") + 1, url.indexOf("-")));
+const Bigposter = function (movieee) {
+  return `<img class="poster_big_img" src="https://image.tmdb.org/t/p/original/${movieee.backdrop_path}" alt="">`;
+};
 
 const seasonsnoFun = function () {
   let seasonhtml = "";
@@ -130,6 +144,21 @@ const CurrEpisode = async (tv_id, currSea, currEpiso) => {
   episohtml = episodefun(data);
   EpisodesContainer.insertAdjacentHTML("beforeend", episohtml);
 };
+const Castfun = (castee) => {
+  let url = "./personDetail.html?id=" + encodeURIComponent(castee.id);
+  return `<div class="Now_playing_movies castdiv" >
+    <a class="posterlink" href="${url}"> <img class="poster" data-id="${castee.id}" src="https://image.tmdb.org/t/p/w500/${castee.profile_path}" loading="lazy" 
+        onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
+        alt="${castee.original_name}"></a>
+        <div class="name_character_container">
+         <p class="movie_title">${castee.original_name}</p>
+         <div class="date_rating casteecharacter" >
+         ${castee.character}
+             </div>
+             </div>
+         </div>`;
+};
+
 
 const releasedEpisode = function (curre) {
   return `<a href=" https://autoembed.to/tv/tmdb/${fetcid}-${

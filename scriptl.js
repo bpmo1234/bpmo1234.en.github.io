@@ -161,6 +161,7 @@ const currpopularfun = (movie) => {
              </div>
          </div>`;
 };
+
 const topratedmoviesfun = (movie) => {
   let url = "./TvShowsDetails.html?id=" + encodeURIComponent(movie.id);
   return `<div class="Top_rated_movies" >
@@ -183,6 +184,7 @@ const topratedmoviesfun = (movie) => {
                      </svg></span></p>
              <div class="category">Tv Show</div>
              </div>
+             
          </div>`;
 };
 

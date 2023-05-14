@@ -960,6 +960,24 @@ body.minimize_siderbar .Home_header_container {
     border: 1px solid #8f1753;
     cursor: pointer;
 }
+.play_btn2 {
+    background-image: url();
+    border: none;
+    outline: none;
+    padding: 10px 80px 10px 80px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    border-radius: 10px;
+    gap: 3px;
+    display: flex;
+    width: fit-content;
+    box-shadow: var(--shadow);
+    background-color: #1a1533;
+    color: #c7c7c7;
+    border: 1px solid #1a1533;
+    cursor: pointer;
+}
 
 .play_btn:hover {
     background-color: white;
