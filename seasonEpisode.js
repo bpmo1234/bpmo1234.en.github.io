@@ -132,9 +132,9 @@ const CurrEpisode = async (tv_id, currSea, currEpiso) => {
 };
 
 const releasedEpisode = function (curre) {
-  return `<a href=" https://www.2embed.to/embed/tmdb/tv?id=${fetcid}&s=${
+  return `<a href=" https://autoembed.to/tv/tmdb/${fetcid}-${
     curre.season_number
-  }&e=${curre.episode_number}"><img class="episode_image"
+  }-${curre.episode_number}"><img class="episode_image"
     src="https://image.tmdb.org/t/p/w500/${curre.still_path}" alt="${
     curre.name
   }">
@@ -151,9 +151,9 @@ const releasedEpisode = function (curre) {
 };
 
 const unreleasedEpisodev = function (curre) {
-  return `<a class="unreleased_link" href=" https://www.2embed.to/embed/tmdb/tv?id=${fetcid}&s=${
+  return `<a class="unreleased_link" href=" https://autoembed.to/tv/tmdb/id=${fetcid}-${
     curre.season_number
-  }&e=${curre.episode_number}"><img class="episode_image unreleased_image"
+  }-${curre.episode_number}"><img class="episode_image unreleased_image"
     src="./resources/D moviesand tv show.png" alt="${curre.name}">
     <span class="runtime">${timeCon(curre.runtime)}</span>
 <div class="playsvg_container"><img class="playsvg" src="./resources/play-circle-fill.svg"
