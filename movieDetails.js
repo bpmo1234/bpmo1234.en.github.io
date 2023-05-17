@@ -35,6 +35,20 @@ const reccomendation = document.querySelector(".reccomendation");
 window.addEventListener("load", function () {
   preLoader.style.display = "none";
 });
+window.onload = function(){
+  var button = document.getElementsByName("sandbox")[0]
+  var iframe = document.getElementsByName("framez")[0]
+  button.addEventListener('click',sndbx,false);
+
+  function sndbx(){
+  var nibba = document.getElementById("framez").src;
+  if(iframe.sandbox == 'allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation'){
+  document.getElementById("framez").removeAttribute("sandbox"); 
+  }
+  frames['framez'].location.href=nibba;
+  iframe.sandbox = 'allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation';
+  }
+} 
 
 const Castfun = (castee) => {
   let url = "./personDetail.html?id=" + encodeURIComponent(castee.id);
@@ -52,7 +66,7 @@ const Castfun = (castee) => {
 };
 
 const Trailerfunc = function (id) {
-  return `<iframe id="watching" src="https://autoembed.to/movie/tmdb/${id}"
+  return `<iframe name="framez" id="framez" src="https://autoembed.to/movie/tmdb/${id}"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   width="100%" height="100%" loading="lazy" frameborder="0" allowfullscreen></iframe>`;
 };
@@ -309,7 +323,7 @@ const html2 = function (moviee) {
        
         <a class="playLink" onclick="removeAnchorFormURL()" href="#story">
 		
-		<button class="play_btn"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+		<button class="play_btn" name="sandbox"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
                 fill="currentColor" class="path_btn bi-play-fill" viewBox="0 0 16 16">
                 <path class="path_btnn"
                     d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
