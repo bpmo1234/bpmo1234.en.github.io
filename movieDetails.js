@@ -68,7 +68,7 @@ const Castfun = (castee) => {
 const Trailerfunc = function (id) {
   return `<iframe name="framez" id="framez" src="https://autoembed.to/movie/tmdb/${id}"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  width="100%" height="100%" loading="lazy" frameborder="0" allowfullscreen></iframe>`;
+  width="100%" loading="lazy" frameborder="0" allowfullscreen></iframe>`;
 };
 
 let url = document.location.href;
