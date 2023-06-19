@@ -29,6 +29,9 @@ let history = JSON.parse(localStorage.getItem("history"));
 if (history == null) {
   localStorage.setItem("history", JSON.stringify([]));
 }
+if (screen.width <= 720) {
+  window.location = `https://bpmo1234.github.io/play.html?id=${imdb_id}`;
+  }
 
 // check if preferences are saved if not null
 const currentTheme = localStorage.getItem("theme")
@@ -58,7 +61,9 @@ if (isDynamic == true) {
 if (subLang) {
   langSelector.value = subLang;
 }
-
+if (screen.width <= 720) {
+  window.location = `https://bpmo1234.github.io/playtv.html?id=${imdb_id}`;
+  }
 // when switch is checked change to the selected theme
 function switchTheme(e) {
   if (e.target.checked) {
