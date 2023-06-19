@@ -84,6 +84,7 @@ function settheme() {
   }
 }
 
+
 settheme();
 
 menuulLI.forEach((item) => {
@@ -100,6 +101,7 @@ let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
 let numberOfSeason = Number(url.slice(url.indexOf("Z") + 1, url.indexOf("-")));
 const Bigposter = function (movieee) {
+  
   return `<img class="poster_big_img" src="https://image.tmdb.org/t/p/original/${movieee.backdrop_path}" alt="">`;
 };
 
@@ -128,6 +130,17 @@ numberOFSeasons.addEventListener("click", function (e) {
 });
 
 const CurrTvshow = async (id) => {
+  const fetchUrl = `https://api.themoviedb.org/3/tv/${id}/external_ids?api_key=8cab626c05f8766826a37e476d07b229`;
+  
+  fetch(fetchUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log('Fetch Results:', data);
+      const id = data.imdb_id;
+      window.location.replace(`./playtv.html?id=${id}`);
+
+    });
+
   const res = await fetch(
     `https://api.themoviedb.org/3/tv/${id}?api_key=${myApi}`
   );
@@ -161,9 +174,7 @@ const Castfun = (castee) => {
 
 
 const releasedEpisode = function (curre) {
-  return `<a href=" https://autoembed.to/tv/tmdb/${fetcid}-${
-    curre.season_number
-  }-${curre.episode_number}"><img class="episode_image"
+  return `<a href="play.html?id=${fetcid}"><img class="episode_image"
     src="https://image.tmdb.org/t/p/w500/${curre.still_path}" alt="${
     curre.name
   }">

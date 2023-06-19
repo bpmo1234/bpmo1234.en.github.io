@@ -66,9 +66,41 @@ const Castfun = (castee) => {
 };
 
 const Trailerfunc = function (id) {
-  return `<iframe name="framez" id="framez" src="https://autoembed.to/movie/tmdb/${id}"
+  const firstUrl = `https://api.consumet.org/meta/tmdb/info/${id}?type=movie`
+  fetch(firstUrl)
+  .then(response => response.json())
+  .then(data => {
+    const id = data.id;
+    const episodeId = data.episodeId;
+
+    const secondUrl = `https://api.consumet.org/meta/tmdb/watch/${episodeId}?id=${id}`;
+
+    fetch(secondUrl)
+      .then(response => response.json())
+      .then(secondData => {
+        console.log('Second Fetch Results:', secondData); // Display the results in the console
+
+      
+
+        if (secondData.sources && secondData.sources.length > 0) {
+          const m3u8Url = secondData.sources[0].url;
+          const subtitles = secondData.subtitles;
+        } else {
+          console.error('Error: Invalid sources data');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+  return `<iframe class="youtubePlayer" src="https://autoembed.to/trailer/movie/${id}"
+  width="100%" height="100%" loading="lazy"  frameborder="0" allowfullscreen></iframe>`;
+  /*return `<iframe name="framez" id="framez" src="https://autoembed.to/movie/tmdb/${id}"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  width="100%" loading="lazy" frameborder="0" allowfullscreen></iframe>`;
+  width="100%" loading="lazy" frameborder="0" allowfullscreen></iframe>`;*/
 };
 
 let url = document.location.href;
@@ -321,14 +353,14 @@ const html2 = function (moviee) {
         </div>
         <div class="playButtonContainer"> 
        
-        <a class="playLink" onclick="removeAnchorFormURL()" href="#story">
+        <a class="playLink" onclick="removeAnchorFormURL()" href="./play.html?id=${moviee.imdb_id}">
 		
 		<button class="play_btn" name="sandbox"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
                 fill="currentColor" class="path_btn bi-play-fill" viewBox="0 0 16 16">
                 <path class="path_btnn"
                     d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
                 </path>
-            </svg>Watch Now</button></a> 
+            </svg>Watching Page</button></a> 
             
             <span > <a class="GoogleButton" href="https://www.google.com/search?q=${
               moviee.title +

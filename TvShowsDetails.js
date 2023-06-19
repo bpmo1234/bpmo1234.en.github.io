@@ -168,13 +168,19 @@ const Castfun = (castee) => {
 };
 
 const Trailerfunc = function (id) {
-  return `<iframe class="youtubePlayer" src="https://autoembed.to/trailer/tv/${id}" width="100%" height="100%" loading="lazy"  frameborder="0" allowfullscreen></iframe>`;
+
+  return `<iframe class="youtubePlayer" src="https://autoembed.to/trailer/tv/${id}"
+  width="100%" height="100%" loading="lazy"  frameborder="0" allowfullscreen></iframe>`;
+
 };
 
 /*  CLCIKED*/
 
-const html2 = function (tvshow) {
-  let url = `./SeasonEpisode.html?/Z${+encodeURIComponent(
+const html2 = function(tvshow) {
+
+
+  let url =
+  `./SeasonEpisode.html?/Z${+encodeURIComponent(
     tvshow.number_of_seasons
   )}-id=${+encodeURIComponent(tvshow.id)}`;
   document.title = `${
@@ -237,6 +243,7 @@ const html2 = function (tvshow) {
 
 </div> `;
 };
+
 
 const Bigposter = function (movieee) {
   return `<img class="poster_big_img" src="https://image.tmdb.org/t/p/original/${movieee.backdrop_path}" alt="">`;
