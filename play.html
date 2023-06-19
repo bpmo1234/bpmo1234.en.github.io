@@ -43,7 +43,17 @@
         <span >LOADING The Movie Without Ads ... Please Wait 10 Sec</span>
       </div>
     <script>
-        setTimeout('document.getElementById("myDiv").style.display="none"', 10000);  // 5 seconds
+        setTimeout('document.getElementById("myDiv").style.display="none"', 5000);  // 5 seconds
+    </script>
+    <script>
+        window.onload = function() {
+            if(!window.location.hash) {
+                setTimeout(function() {
+                window.location = window.location + '#loading';
+                window.location.reload();
+            }, 4999);
+            }
+        }
     </script>
 
     <div class="wrapper">
