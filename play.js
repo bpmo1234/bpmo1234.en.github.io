@@ -609,11 +609,13 @@ async function displayVideo(episodeId, mediaId) {
 
   const sources = await arrangeSources(json.sources);
   const subtitles = await arrangeSubtitles(json.subtitles);
+  
 
   const player = definePlayer({
     video_id: "video_1",
     sources: sources,
     subtitles: subtitles,
+    
   });
 
   console.log(sources);
