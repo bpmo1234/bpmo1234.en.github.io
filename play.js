@@ -344,7 +344,7 @@ async function displayMovieDetails(imdb_id) {
   }
 
   if (details.Type == "movie") {
-    watchGrid.innerHTML = `<span> ← CLICK HERE TO WATCH (NO ADS)</span> <button id="watch-movie" class=""><i class="fa fa-play"></i></button>`;
+    watchGrid.innerHTML = `<span> ← CLICK HERE 2 Times TO WATCH (NO POP ADS)</span> <button id="watch-movie" class=""><i class="fa fa-play"></i></button>`;
     const watchButton = document.getElementById("watch-movie");
 
     watchButton.addEventListener("click", () => {
