@@ -582,7 +582,7 @@ input.dynamic:checked + div:before {
 }
 
 #video-grid {
-  margin: 2rem 5rem;
+  /*margin: 2rem 5rem;*/
 }
 
 @media (max-width: 500px) {
