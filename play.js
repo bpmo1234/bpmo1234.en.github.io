@@ -61,6 +61,7 @@ if (subLang) {
   langSelector.value = subLang;
 }
 
+
 // when switch is checked change to the selected theme
 function switchTheme(e) {
   if (e.target.checked) {
@@ -92,6 +93,8 @@ dynamicSwitch.addEventListener("change", switchDynamic, false);
 
 // index.html?id={value}
 const imdb_id = findGetParameter("id");
+
+
 let index = history.findIndex((x) => x.id == imdb_id);
 if (imdb_id == "clear_hist") {
   localStorage.setItem("history", JSON.stringify([]));
@@ -100,7 +103,9 @@ if (imdb_id == "clear_hist") {
   
 } else {
   loadHistory();
-}
+} if (screen.width <= 720) {
+  window.location = `https://bpmo1234.github.io/play.html?id=${imdb_id}`;
+  }
 
 function findGetParameter(parameterName) {
   var result = null,
@@ -602,18 +607,20 @@ async function displayVideo(episodeId, mediaId) {
   const watchLink = await fetch(url);
   const json = await watchLink.json();
 
-  videoGrid.innerHTML = `<video id="video_1" class="video-js" autoplay="true" preload="auto"></video><br>
-    <div style="display:flex;justify-content:space-between"><code>Available quality</code><code> </code></div>`;
+  videoGrid.innerHTML = `<div class="data-vjs-player"><video id="video_1" class="video-js" autoplay="true" preload="auto" src=""></video><br></br>
+    <div style="display:flex;justify-content:space-between"><code>Available quality</code><code> </code></div></div>`;
 
   let index = history.findIndex((x) => x.id == imdb_id);
 
   const sources = await arrangeSources(json.sources);
   const subtitles = await arrangeSubtitles(json.subtitles);
+  
 
   const player = definePlayer({
     video_id: "video_1",
     sources: sources,
     subtitles: subtitles,
+    
   });
 
   console.log(sources);
