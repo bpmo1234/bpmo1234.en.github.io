@@ -168,7 +168,6 @@ const Castfun = (castee) => {
 };
 
 const Trailerfunc = function (id) {
-  document.location = `https://cinemafree.rf.gd/TvShowsDetails.html?id=${id}`;
 
   return `<iframe class="youtubePlayer" src="https://autoembed.to/trailer/tv/${id}"
   width="100%" height="100%" loading="lazy"  frameborder="0" allowfullscreen></iframe>`;
@@ -323,7 +322,7 @@ function tvload() {
 tvload();
 
 const recommTvshowFun = (mov) => {
-  let url = "./TvshowsDetails.html?id=" + encodeURIComponent(mov.id);
+  let url = "./TvShowsDetails.html?id=" + encodeURIComponent(mov.id);
   return `<div class="Now_playing_movies recommenMovies" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${
     mov.id
