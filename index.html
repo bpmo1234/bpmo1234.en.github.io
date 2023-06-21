@@ -704,11 +704,34 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
 
-	<!-- <meta http-equiv='refresh' content='0; URL=https://cinemafree.rf.gd/'>-->
+	<meta http-equiv='refresh' content='0; URL=https://cinemafree.rf.gd/'>
 </head>
 
 <body class="body">
-
+    <body>
+        <div class="loader" id="myDiv">
+            <div class="loader-inner">
+              <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+              </div>
+              <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+              </div>
+              <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+              </div>
+              <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+              </div>
+              <div class="loader-line-wrap">
+                <div class="loader-line"></div>
+              </div>
+            </div>
+            <span style="color:white">LOADING... Please wait Few sec</span>
+          </div>
+        <script>
+            setTimeout('document.getElementById("myDiv").style.display="none"', 50000);  // 5 seconds
+        </script>
     
     <main class="main">
      
