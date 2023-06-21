@@ -1462,7 +1462,7 @@ body.light .trending_arrow {
     margin: auto;
     width: max-content;
     position: relative;
-    right: 7rem;
+   right: 7rem;
     top: 6rem;
 }
 
@@ -2181,7 +2181,7 @@ body.light .msg_episode {
 
 
     .navContainer input {
-        width: 82%;
+        width: 42%;
         margin: 1px 11px 0 15px;
     }
 

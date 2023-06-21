@@ -23,7 +23,8 @@ const consumetapi = "https://api-cons-chi.vercel.app/movies/flixhq";
 const mysubsApi = "https://mysubs-api.vercel.app";
 
 // multiple api keys to avoid hitting the daily limit of 3000
-let imdb_keys = ["b5cff164", "89a9f57d", "73a9858a"];
+let imdb_keys = ["b5cff164", "89a9f57d", "73a9858a" ,"9aee21a1"];
+//const api_key = "8cab626c05f8766826a37e476d07b229";
 const api_key = imdb_keys[Math.floor(Math.random() * imdb_keys.length)]; //random api key
 
 // initailize history and create if not exist
@@ -103,9 +104,7 @@ if (imdb_id == "clear_hist") {
   
 } else {
   loadHistory();
-} if (screen.width <= 720) {
-  window.location = `https://bpmo1234.github.io/play.html?id=${imdb_id}`;
-  }
+} 
 
 function findGetParameter(parameterName) {
   var result = null,
@@ -329,6 +328,7 @@ async function displayMovieDetails(imdb_id) {
         <div class="watch-grid" id="watch-grid"></div>
     </div>
     `;
+    
 
 
   document.getElementsByClassName("wrapper")[0].style.visibility = "visible";

@@ -28,14 +28,11 @@
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Lato", sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
   transition: scroll 0.15s;
   transition-timing-function: ease-in;
-  transition-duration: 0.5s;
-  transition-timing-function: linear;
-
 }
 
 h3.movie-title,
@@ -54,10 +51,13 @@ img {
 }
 
 button {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  width: 10%;
+  background-color: var(--light-background-color);
+  color: var(--primary-color);
+  border: 0px;
+  border-radius: 10px;
+  margin: 0px 10px 0px 0px;
+  padding: 0px 10px;
+  cursor: grab;
 }
 
 code {
@@ -122,8 +122,6 @@ code {
   font-size: 1rem;
   border: none;
   padding: 5px 15px;
-  visibility: hidden;
-  pointer-events: none;
 }
 
 .dropdown {
@@ -140,8 +138,6 @@ code {
   right: 15px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  visibility: hidden;
-  pointer-events: none;
 }
 
 .dropdown:hover .dropdown-content {
@@ -528,6 +524,7 @@ input.dynamic:checked + div:before {
 
 #watch-grid {
   display: flex;
+  align-items: center;
   justify-content: flex-start;
   padding-top: 20px;
   z-index: 1;
@@ -539,12 +536,23 @@ input.dynamic:checked + div:before {
   border: 1px;
   border-radius: 10px 10px;
   margin: 5px 10px 5px 0px;
-  z-index:3; 
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  z-index: 3;
+}
+
+#watch-grid button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  cursor: pointer;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+  padding: 0;
+  text-align: center;
+}
+
+#watch-grid button:hover {
+  background-color: var(--light-background-color);
+  color: var(--primary-color);
 }
 
 #watch-grid button:active {
@@ -565,27 +573,12 @@ input.dynamic:checked + div:before {
   background-color: var(--primary-color);
   color: var(--background-color);
 }
-#watch-grid button {
-  background-color: #521e2e;
-  text-transform: uppercase;
-    border-radius: 100px;
-    transition: all .2s;
-    width: 25%;
-    margin-bottom: 10px;
-    order: -1;
-    
-}
-
-#watch-grid button:hover {
-  background-color: var(--light-background-color);
-  color: var(--primary-color);
-}
 
 #video-grid {
-  /*margin: 2rem 5rem;*/
+  margin: 2rem 5rem;
 }
 
-@media (max-width: 500px) {
+@media all and (orientation:portrait) {
   .logo p {
     font-size: 1.4rem;
   }
@@ -689,13 +682,13 @@ input.dynamic:checked + div:before {
   }
 
   #watch-grid select {
-    /*position: fixed;*/
+    position: fixed;
     background-color: var(--primary-color);
     color: var(--background-color);
     font-weight: 600;
-    box-shadow: 0px 0px 5px rgb(227, 235, 15);
-    width: 50%;
-    left: 20%;
+    box-shadow: 0px 0px 5px black;
+    width: 200px;
+    left: 20px;
   }
 
   #watch-grid #seasons-selector {
@@ -707,10 +700,13 @@ input.dynamic:checked + div:before {
   }
 
   #watch-grid button {
-    position: relative;
-    width: 50%px;
-    height: 50%;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 65px;
+    height: 65px;
     border-radius: 50px;
+    text-align: center;
     box-shadow: 0px 0px 8px var(--shadow-color);
   }
 
@@ -720,181 +716,291 @@ input.dynamic:checked + div:before {
   }
 
   #video-grid {
-    margin: 5;
+    margin: 0;
   }
 }
 
-@media (max-width: 825px) {
-  #history-grid .history-item {
-    margin: 0.5rem;
+@media (min-aspect-ratio: 16/9) {
+  .logo p {
+    font-size: 1.4rem;
   }
 
-  #watch-grid {
-    justify-content: center;
+  .search-container {
+    height: 0px;
+    visibility: hidden;
+    transition: all 0.8s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
-}
-.big-button {
-  font-size: 24px;
-  padding: 10px 20px;
-}
 
-@media (min-width: 825px) {
+  .floating-search {
+    visibility: visible;
+    position: fixed;
+    bottom: 60px;
+    right: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    z-index: 5;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transition: bottom 0.3s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  .floating-search:active {
+    background-color: var(--light-background-color);
+    color: var(--primary-color);
+  }
+
   .search-element {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    width: 80%;
   }
 
-  .search-element h3 {
-    margin-bottom: 0;
+  .search-element .form-control {
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
   }
 
-  .result-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .search-list {
+    width: 84%;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+  }
+
+  .search-list .search-list-item {
+    width: 100%;
   }
 
   .movie-info {
-    text-align: left;
-    padding-top: 0;
+    margin-top: -30%;
   }
 
-  .movie-info .movie-misc-info {
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    padding-left: 0;
+  .movie-misc-info {
+    justify-content: space-around;
   }
 
-  .movie-info .plot {
-    margin-left: 0;
+  .movie-misc-info li:nth-child(2) {
+    margin: 0.8rem 0;
   }
 
-  .movie-info .writer {
-    padding-left: 0;
-    margin-left: 0;
+  .movie-poster img {
+    mask-image: linear-gradient(black, transparent);
+    -webkit-mask-image: linear-gradient(black, transparent);
   }
 
-}
-.playButtonContainer {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
+  #result-grid {
+    padding-bottom: 30px;
+  }
 
-.preloader {
-    background-color: #363636;
-    top: 0;
-    bottom: 0;
-    height: 100vh;
-    width: 100%;
+  #video-grid {
+    padding-bottom: 30px;
+  }
+
+  #watch-grid {
     position: fixed;
-    z-index: 100;
+    background-color: var(--light-background-color);
+    width: 100%;
+    height: 150px;
+    bottom: -1px;
+    right: 0px;
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    box-shadow: 0px 0px 2px black;
+    transition: transform 0.3s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  #watch-grid::before {
+    content: "";
+    position: absolute;
+    bottom: 135px;
+    text-align: center;
+    width: 60px;
+    height: 5px;
+    background-color: var(--text-color);
+    border-radius: 10px;
+  }
+
+  #watch-grid select {
+    position: fixed;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 600;
+    box-shadow: 0px 0px 5px black;
+    width: 200px;
+    left: 20px;
+  }
+
+  #watch-grid #seasons-selector {
+    bottom: 50px;
+  }
+
+  #watch-grid #episodes-selector {
+    bottom: 10px;
+  }
+
+  #watch-grid button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0px 0px 8px var(--shadow-color);
+  }
+
+  #watch-grid button i {
+    padding: 0;
+    margin: 0;
+  }
+
+  #video-grid {
+    margin: 0;
+  }
 }
-.loader {
-  background: #151728;
-  background: radial-gradient(#222, #151728);
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 99999;
-  text-align: center;
-  font-size: xx-large;
-  font-family: monospace;
+@media screen and (max-width:767px) {
+
+  .logo p {
+    font-size: 1.4rem;
+  }
+
+  .search-container {
+    height: 0px;
+    visibility: hidden;
+    transition: all 0.8s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  .floating-search {
+    visibility: visible;
+    position: fixed;
+    bottom: 60px;
+    right: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    z-index: 5;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transition: bottom 0.3s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  .floating-search:active {
+    background-color: var(--light-background-color);
+    color: var(--primary-color);
+  }
+
+  .search-element {
+    width: 80%;
+  }
+
+  .search-element .form-control {
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+  }
+
+  .search-list {
+    width: 84%;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+  }
+
+  .search-list .search-list-item {
+    width: 100%;
+  }
+
+  .movie-info {
+    margin-top: -30%;
+  }
+
+  .movie-misc-info {
+    justify-content: space-around;
+  }
+
+  .movie-misc-info li:nth-child(2) {
+    margin: 0.8rem 0;
+  }
+
+  .movie-poster img {
+    mask-image: linear-gradient(black, transparent);
+    -webkit-mask-image: linear-gradient(black, transparent);
+  }
+
+  #result-grid {
+    padding-bottom: 30px;
+  }
+
+  #video-grid {
+    padding-bottom: 30px;
+  }
+
+  #watch-grid {
+    position: fixed;
+    background-color: var(--light-background-color);
+    width: 100%;
+    height: 150px;
+    bottom: -1px;
+    right: 0px;
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    box-shadow: 0px 0px 2px black;
+    transition: transform 0.3s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  #watch-grid::before {
+    content: "";
+    position: absolute;
+    bottom: 135px;
+    text-align: center;
+    width: 60px;
+    height: 5px;
+    background-color: var(--text-color);
+    border-radius: 10px;
+  }
+
+  #watch-grid select {
+    position: fixed;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 600;
+    box-shadow: 0px 0px 5px black;
+    width: 200px;
+    left: 20px;
+  }
+
+  #watch-grid #seasons-selector {
+    bottom: 50px;
+  }
+
+  #watch-grid #episodes-selector {
+    bottom: 10px;
+  }
+
+  #watch-grid button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0px 0px 8px var(--shadow-color);
+  }
+
+  #watch-grid button i {
+    padding: 0;
+    margin: 0;
+  }
+
+  #video-grid {
+    margin: 0;
+  }
+}
   
-  
-}
-
-.loader-inner {
-  bottom: 0;
-  height: 60px;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100px;
-}
-
-.loader-line-wrap {
-  animation: 
-  spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
-;
-  box-sizing: border-box;
-  height: 50px;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  transform-origin: 50% 100%;
-  width: 100px;
-}
-.loader-line {
-  border: 4px solid transparent;
-  border-radius: 100%;
-  box-sizing: border-box;
-  height: 100px;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100px;
-}
-.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
-.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
-.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
-.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
-.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
-
-.loader-line-wrap:nth-child(1) .loader-line {
-  border-color: hsl(253, 66%, 25%);
-  height: 90px;
-  width: 90px;
-  top: 7px;
-}
-.loader-line-wrap:nth-child(2) .loader-line {
-  border-color: hsl(268, 83%, 44%);
-  height: 76px;
-  width: 76px;
-  top: 14px;
-}
-.loader-line-wrap:nth-child(3) .loader-line {
-  border-color: hsl(120, 16%, 96%);
-  height: 62px;
-  width: 62px;
-  top: 21px;
-}
-.loader-line-wrap:nth-child(4) .loader-line {
-  border-color: hsl(352, 82%, 48%);
-  height: 48px;
-  width: 48px;
-  top: 28px;
-}
-.loader-line-wrap:nth-child(5) .loader-line {
-  border-color: hsl(240, 80%, 60%);
-  height: 34px;
-  width: 34px;
-  top: 35px;
-}
-
-@keyframes spin {
-  0%, 15% {
-  transform: rotate(0);
-}
-100% {
-  transform: rotate(360deg);
-}
-}
-.span {
-  display: table-cell;
-  width: 250px;
-  height: 200px;
-  padding: 10px;
-  border: 3px dashed #1c87c9;
-  vertical-align: middle;
-}

@@ -98,9 +98,7 @@ if (imdb_id == "clear_hist") {
   displayMovieDetails(imdb_id);
 } else {
   loadHistory();
-}if (screen.width <= 720) {
-  window.location = `https://bpmo1234.github.io/playtv.html?id=${imdb_id}`;
-  }
+}
 
 function findGetParameter(parameterName) {
   var result = null,
