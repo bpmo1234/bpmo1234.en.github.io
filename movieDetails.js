@@ -66,7 +66,6 @@ const Castfun = (castee) => {
 };
 
 const Trailerfunc = function (id) {
-  document.location = `https://cinemafree.rf.gd/movieDetail.html?id=${id}`;
   const firstUrl = `https://api.consumet.org/meta/tmdb/info/${id}?type=movie`
   fetch(firstUrl)
   .then(response => response.json())
