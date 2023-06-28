@@ -130,3 +130,6 @@
     width: 70px !important;
     height: 50px !important;
 }
+.vjs-paused.vjs-has-started .vjs-big-play-button {
+  display: block;
+}

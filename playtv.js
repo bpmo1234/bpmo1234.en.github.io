@@ -18,6 +18,7 @@ const langSelector = document.getElementById("language-selector");
 // The apis I'll be using
 const omdb_api = "https://omdbapi.com";
 const consumetapi = "https://api-cons-chi.vercel.app/movies/flixhq";
+//const consumetapi = "https://api.consumet.org/anime/gogoanime/watch/";
 const mysubsApi = "https://mysubs-api.vercel.app";
 
 // multiple api keys to avoid hitting the daily limit of 3000
@@ -295,6 +296,7 @@ async function displayMovieDetails(imdb_id) {
   themeSwitch.addEventListener("change", switchTheme, false);
 
   resultGrid.innerHTML = `
+  <div class="watch-grid" id="watch-grid"></div>
     <div class = "movie-poster">
         <img src = "${
           details.Poster != "N/A"
@@ -319,7 +321,7 @@ async function displayMovieDetails(imdb_id) {
         <p class = "awards"><b><i class = "fas fa-award"></i></b> ${
           details.Awards
         }</p>
-        <div class="watch-grid" id="watch-grid"></div>
+        
     </div>
     `;
 
@@ -341,7 +343,7 @@ async function displayMovieDetails(imdb_id) {
   }
 
   if (details.Type == "movie") {
-    watchGrid.innerHTML = `<span> ← CLICK HERE TO WATCH (NO ADS)</span> <button id="watch-movie"><i class="fa fa-play"></i></button>`;
+    watchGrid.innerHTML = `<span>CLICK HERE TO WATCH (NO ADS)</span> <button id="watch-movie"><i class="fa fa-play"></i></button>`;
     const watchButton = document.getElementById("watch-movie");
 
     watchButton.addEventListener("click", () => {

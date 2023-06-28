@@ -578,3 +578,294 @@ input.dynamic:checked + div:before {
   margin: 2rem 5rem;
 }
 
+.overlay_side_navabar {
+  display: none;
+  width: 100%;
+  position: fixed;
+  background-color: #160e0e80;
+  height: 100%;
+  z-index: 3;
+}
+.overlay_side_navabar_activate {
+  display: block;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+.overlay_side_navabar {
+  display: none;
+}
+
+.sidenav {
+  height: 100vh;
+  width: 77px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  z-index: 3;
+  background-color: #33373e;
+  background-color: #202326;
+  padding: 0 0 0 2px;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+  background-image: url("./resources/D\ moviesand\ tv\ shows\ \(Transparent\ BG\).png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 100%;
+}
+
+body.minimize_siderbar .sidenav_container {
+  width: 16rem;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+.sidenav_container_movieDetail {
+  position: fixed;
+  top: 0;
+  align-items: center;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  width: initial;
+}
+.sidenav_container {
+  width: 5rem;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  display: none;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+
+.sidenav_container_active {
+  display: block;
+  z-index: 3;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+
+.sidenav_container {
+  width: 5rem;
+
+}
+
+.sidenav_2 {
+  width: 5rem;
+}
+
+
+.sidenavlinks {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  width: fit-content;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 8px 0px 10px 18px;
+}
+
+body.minimize_siderbar .sidenav {
+  width: 14rem;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  height: 100%;
+  background-size: 153px;
+  background-position-y: 103%;
+}
+
+body.minimize_siderbar .sidenav_container {
+  width: 16rem;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+body.minimize_siderbar .arrow_left {
+  display: block;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+body.minimize_siderbar .title {
+  display: block;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+body.minimize_siderbar .hamburger {
+  display: none;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+
+}
+
+body.minimize_siderbar .title_span {
+  display: inline-block;
+}
+
+body.minimize_siderbar .menu_title {
+  display: block;
+}
+
+body.minimize_siderbar .menu {
+  margin-left: 2rem;
+  margin-top: 4rem;
+  display: block;
+}
+
+
+body.minimize_siderbar .menu_ul {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  margin-left: 0rem;
+}
+
+
+
+body.minimize_siderbar .sidenavlinks {
+  padding: 8px 95px 10px 18px;
+  gap: 15px;
+}
+
+
+body.minimize_siderbar .section_one {
+  margin-left: 1rem;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+
+}
+
+body.minimize_siderbar .Now_playing_movies_container {
+  width: 79vw;
+  position: relative;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+body.minimize_siderbar .light_darkmode {
+  right: 25%;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+body.minimize_siderbar .navContainer {
+  left: 225px;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+
+}
+
+body.minimize_siderbar .movieDetailnavContainer {
+  left: 223px;
+
+}
+
+
+
+
+body.minimize_siderbar .sidenav_child_container {
+  width: 14rem;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+body.minimize_siderbar .section_one_movieDetail {
+  margin-left: 14rem;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+
+
+.loader-inner {
+  bottom: 0;
+  height: 60px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+
+.loader-line-wrap {
+  animation: 
+  spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite
+;
+  box-sizing: border-box;
+  height: 50px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform-origin: 50% 100%;
+  width: 100px;
+}
+.loader-line {
+  border: 4px solid transparent;
+  border-radius: 100%;
+  box-sizing: border-box;
+  height: 100px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+.loader-line-wrap:nth-child(1) { animation-delay: -50ms; }
+.loader-line-wrap:nth-child(2) { animation-delay: -100ms; }
+.loader-line-wrap:nth-child(3) { animation-delay: -150ms; }
+.loader-line-wrap:nth-child(4) { animation-delay: -200ms; }
+.loader-line-wrap:nth-child(5) { animation-delay: -250ms; }
+
+.loader-line-wrap:nth-child(1) .loader-line {
+  border-color: hsl(253, 66%, 25%);
+  height: 90px;
+  width: 90px;
+  top: 7px;
+}
+.loader-line-wrap:nth-child(2) .loader-line {
+  border-color: hsl(268, 83%, 44%);
+  height: 76px;
+  width: 76px;
+  top: 14px;
+}
+.loader-line-wrap:nth-child(3) .loader-line {
+  border-color: hsl(120, 16%, 96%);
+  height: 62px;
+  width: 62px;
+  top: 21px;
+}
+.loader-line-wrap:nth-child(4) .loader-line {
+  border-color: hsl(352, 82%, 48%);
+  height: 48px;
+  width: 48px;
+  top: 28px;
+}
+.loader-line-wrap:nth-child(5) .loader-line {
+  border-color: hsl(240, 80%, 60%);
+  height: 34px;
+  width: 34px;
+  top: 35px;
+}
+
+@keyframes spin {
+  0%, 15% {
+  transform: rotate(0);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+.span {
+  display: table-cell;
+  width: 250px;
+  height: 200px;
+  padding: 10px;
+  border: 3px dashed #1c87c9;
+  vertical-align: middle;
+}
