@@ -301,6 +301,7 @@ async function displayMovieDetails(imdb_id) {
   themeSwitch.addEventListener("change", switchTheme, false);
 
   resultGrid.innerHTML = `
+  <div class="watch-grid" id="watch-grid"></div>
     <div class = "movie-poster">
         <img src = "${
           details.Poster != "N/A"
@@ -325,7 +326,7 @@ async function displayMovieDetails(imdb_id) {
         <p class = "awards"><b><i class = "fas fa-award"></i></b> ${
           details.Awards
         }</p>
-        <div class="watch-grid" id="watch-grid"></div>
+       
     </div>
     `;
     
@@ -349,7 +350,7 @@ async function displayMovieDetails(imdb_id) {
   }
 
   if (details.Type == "movie") {
-    watchGrid.innerHTML = `<span> ← CLICK HERE 2 Times TO WATCH (NO POP ADS)</span> <button id="watch-movie" class=""><i class="fa fa-play"></i></button>`;
+    watchGrid.innerHTML = `<span>CLICK HERE TO WATCH (NO POP ADS)</span> <button id="watch-movie" class=""><i class="fa fa-play"></i></button>`;
     const watchButton = document.getElementById("watch-movie");
 
     watchButton.addEventListener("click", () => {
