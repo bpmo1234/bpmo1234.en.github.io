@@ -608,7 +608,7 @@ async function displayVideo(episodeId, mediaId) {
   const watchLink = await fetch(url);
   const json = await watchLink.json();
 
-  videoGrid.innerHTML = `<div class="data-vjs-player"><video id="video_1" class="video-js" autoplay="true" preload="auto" src=""></video><br></br>
+  videoGrid.innerHTML = `<div class="data-vjs-player"><video id="video_1" class="video-js" autoplay="true" width="100%" preload="auto" src=""></video><br></br>
     <div style="display:flex;justify-content:space-between"><code>Available quality</code><code> </code></div></div>`;
 
   let index = history.findIndex((x) => x.id == imdb_id);

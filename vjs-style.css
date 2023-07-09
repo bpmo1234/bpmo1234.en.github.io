@@ -107,19 +107,19 @@
   border: none;
   top: -0.35em;
 }
-.vjs-big-play-button .vjs-svg-icon {
+/*.vjs-big-play-button .vjs-svg-icon {
   left: 40%;
   top: 40%;
   width: 20%;
   height: 20%;
-}
+}*/
 @media only screen and (max-width:599px) {
-	.vjs-default-skin .vjs-big-play-button {left:25%;top:25%;width:50%;height:50%;}
+	/*.vjs-default-skin .vjs-big-play-button {left:25%;top:25%;width:50%;height:50%;}*/
 }
 @media only screen and (min-width:600px) and (max-width:768px) {
-	.vjs-default-skin .vjs-big-play-button {left:25%;top:25%;width:50%;height:50%;font-size:5em;}
+	/*.vjs-default-skin .vjs-big-play-button {left:25%;top:25%;width:50%;height:50%;font-size:5em;}*/
 }
-.vjs-default-skin .vjs-big-play-button {
+/*.vjs-default-skin .vjs-big-play-button {
   left: 40%;
   top: 40%;
   width: 20%;
@@ -129,7 +129,8 @@
     margin-left: 45% !important;
     width: 70px !important;
     height: 50px !important;
-}
+}*/
 .vjs-paused.vjs-has-started .vjs-big-play-button {
   display: block;
+  position: center !important;
 }

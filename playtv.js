@@ -18,7 +18,8 @@ const langSelector = document.getElementById("language-selector");
 // The apis I'll be using
 const omdb_api = "https://omdbapi.com";
 const consumetapi = "https://api-cons-chi.vercel.app/movies/flixhq";
-//const consumetapi = "https://api.consumet.org/anime/gogoanime/watch/";
+const consumetapianime = "https://api.consumet.org/anime/gogoanime/info";
+const consumetapianimewatch = "https://api.consumet.org/anime/gogoanime";
 const mysubsApi = "https://mysubs-api.vercel.app";
 
 // multiple api keys to avoid hitting the daily limit of 3000
@@ -104,6 +105,7 @@ if (imdb_id == "clear_hist") {
 function findGetParameter(parameterName) {
   var result = null,
     tmp = [];
+  // eslint-disable-next-line no-restricted-globals
   location.search
     .substr(1)
     .split("&")
@@ -120,6 +122,7 @@ async function material_you(img, theme) {
     return;
   }
 
+  // eslint-disable-next-line no-undef
   const fac = new FastAverageColor();
   fac.getColorAsync(img, { algorithm: "sqrt" }).then((color) => {
     root.style.setProperty("--primary-color", color.hex);
@@ -157,7 +160,7 @@ function LightenDarkenColor(color, amount) {
 const floatingSearch = document.getElementById("floating-search");
 const searchElement = document.getElementsByClassName("search-container")[0];
 floatingSearch.addEventListener("click", (e) => {
-  searchElement.style.height = "50px";
+  searchElement.style.height = "70px";
   searchElement.style.visibility = "visible";
   document.getElementById("movie-search-box").focus();
 });
@@ -238,11 +241,14 @@ function displayMovieList(movies) {
     movieListItem.dataset.id = movies[idx].imdbID; // setting movie id in  data-id
     movieListItem.classList.add("search-list-item");
 
+    // eslint-disable-next-line no-undef
     if (movies[idx].Poster != "N/A") moviePoster = movies[idx].Poster;
+    // eslint-disable-next-line no-undef
     else moviePoster = "image_not_found.png";
 
     movieListItem.innerHTML = `
         <div class = "search-item-thumbnail">
+            // eslint-disable-next-line no-undef, no-undef
             <img src = "${moviePoster}">
         </div>
         <div class = "search-item-info">
@@ -576,17 +582,42 @@ async function watch_series(title, details) {
   });
 }
 
+
 async function getEpisodes(title) {
-  const result = await fetch(`${consumetapi}/${title}`);
-  const movieDetails = await result.json();
+  //title = title.replace(/\s+/g, '-').toLowerCase().replace(/\?/g, '');
+console.log(title);
+  try {
+    const result = await fetch(`${consumetapi}/${title}`);
+    const movieDetails = await result.json();
 
-  const match = movieDetails.results.filter(function (el) {
-    return el.title == title && el.type == "TV Series";
-  });
+    const match = movieDetails.results.filter(function (el) {
+      return el.title == title && el.type == "TV Series";
+    });
 
-  const watchLink = await fetch(`${consumetapi}/info?id=${match[0].id}`);
-  return await watchLink.json();
+    try {
+      const watchLink = await fetch(`${consumetapi}/info?id=${match[0].id}`);
+      return await watchLink.json();
+    } catch (watchLinkError) {
+      console.error('watchLink fetch failed:', watchLinkError);
+      
+      try {
+        title = title.replace(/\s+/g, '-').toLowerCase().replace(/\?/g, '');
+        const watchLinkAnime = await fetch(`${consumetapianimewatch}/watch/${title}`);
+        return await watchLinkAnime.json();
+      } catch (watchLinkAnimeError) {
+        console.error('watchLinkAnime fetch failed:', watchLinkAnimeError);
+        throw watchLinkAnimeError; // Throw the error to be handled by the caller
+      }
+    }
+  } catch (error) {
+    console.error('First fetch failed:', error);
+    throw error; // Throw the error to be handled by the caller
+  }
 }
+
+
+
+
 
 async function displayVideo(episodeId, mediaId) {
   const url = `${consumetapi}/watch?episodeId=${episodeId}&mediaId=${mediaId}&source=vidcloud`;
