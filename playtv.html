@@ -39,15 +39,11 @@
             <div class="loader-line"></div>
           </div>
         </div>
-        <span >LOADING All Episodes To avoid ads... Please wait</span>
-        <br>
-        <span >It takes 20 sec Max. Sorry about that</span>
-        <br>
-        <span>Reload the page if the episode selector is not showing.</span>
+        <script>
+            setTimeout('document.getElementById("myDiv").style.display="none"', 5000);  // 10 seconds
+        </script>
       </div>
-    <script>
-        setTimeout('document.getElementById("myDiv").style.display="none"', 10000);  // 10 seconds
-    </script>
+   
  <!-- <script>
     window.onload = function() {
         if(!window.location.hash) {

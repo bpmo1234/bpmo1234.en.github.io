@@ -18,6 +18,8 @@ const currentPopularMoviesDiv = document.querySelector(
   ".current_popular_movies_div"
 );
 const TopRatedMoviesDiv = document.querySelector(".Top_rated_movies_div");
+const TopAnimeDiv = document.querySelector(".Top_anime_div");
+
 const menuulLI = document.querySelectorAll(".menu_ul li");
 const trending_div_container = document.querySelector(
   ".trending_div_container"
@@ -104,12 +106,22 @@ const popularnow = async () => {
 };
 const Toprated = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/trending/tv/week?api_key=${myApi}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/discover/tv?api_key=8cab626c05f8766826a37e476d07b229&language=en-US&with_genres=10759&page=1`
   );
   const data = await res.json();
 
   const Topratedmovies = data.results;
   return Topratedmovies;
+};
+
+const Topanime = async () => {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/discover/tv?api_key=8cab626c05f8766826a37e476d07b229&language=en-US&with_genres=16&page=1`
+  );
+  const data = await res.json();
+
+  const Topanime = data.results;
+  return Topanime;
 };
 
 const NowPlayingfun = (movie) => {
@@ -165,6 +177,31 @@ const currpopularfun = (movie) => {
 const topratedmoviesfun = (movie) => {
   let url = "./TvShowsDetails.html?id=" + encodeURIComponent(movie.id);
   return `<div class="Top_rated_movies" >
+    <a class="posterlink" href=${url}> <img class="poster" data-id="${
+    movie.id
+  }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"loading="lazy" 
+  onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
+  alt="${movie.name}"></a>
+         <p class="movie_title">${movie.name}</p>
+         <div class="date_rating">
+             <p class="date">${dateFormatter(
+               movie.first_air_date
+             )}</p><span class="dot dot2"></span>
+             <p class="rating">${
+               movie.vote_average
+             }<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
+                         height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
+                         <path
+                             d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                     </svg></span></p>
+             <div class="category">Tv Show</div>
+             </div>
+             
+         </div>`;
+};
+const topanimefun = (movie) => {
+  let url = "./animeWatch.html?id=" + encodeURIComponent(movie.id);
+  return `<div class="Top_anime" >
     <a class="posterlink" href=${url}> <img class="poster" data-id="${
     movie.id
   }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"loading="lazy" 
@@ -261,6 +298,18 @@ Toprated().then((movies) => {
   );
 });
 
+Topanime().then((movies) => {
+  movies.forEach((moviee) => {
+    const htmll = topanimefun(moviee);
+    TopAnimeDiv.insertAdjacentHTML("beforeend", htmll);
+  });
+
+  const Top_anime = document.querySelectorAll(".Top_anime");
+  Top_anime.forEach(
+    (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
+  );
+});
+
 TodayTrending().then((trends) => {
   trends.forEach((trend) => {
     const html = trendinghtml(trend);
@@ -343,6 +392,9 @@ leftArrow.forEach((item) =>
     if (item.parentElement.id == "toprated") {
       Sidescroll(TopRatedMoviesDiv, "left", 2, 500, 15);
     }
+    if (item.parentElement.id == "topanime") {
+      Sidescroll(TopAnimeDiv, "left", 2, 500, 15);
+    }
   })
 );
 
@@ -357,6 +409,9 @@ rightarrow.forEach((item) =>
     }
     if (item.parentElement.id == "toprated") {
       Sidescroll(TopRatedMoviesDiv, "right", 2, 500, 15);
+    }
+    if (item.parentElement.id == "topanime") {
+      Sidescroll(TopAnimeDiv, "right", 2, 500, 15);
     }
   })
 );
@@ -378,12 +433,12 @@ const Sidescroll = function (element, direction, speed, distance, step) {
 
 //  ALERT MESSAGE AT THE BEGINING//
 
-const hideAlert = function () {
-  alertMsg.classList.remove("alertactive");
-};
+//const hideAlert = function () {
+  //alertMsg.classList.remove("alertactive");
+//};
 
-okayBtn.addEventListener("click", hideAlert);
-
+//okayBtn.addEventListener("click", hideAlert);
+/*
 window.onload = function () {
   if (document.title.includes("Home")) {
     menuulLI[0].classList.add("hovered");
@@ -391,7 +446,7 @@ window.onload = function () {
   alertMsg.classList.add("alertactive");
   setTimeout(hideAlert, 6000);
 };
-
+*/
 searchbox.addEventListener("click", function () {
   location.replace("./search.html");
 });

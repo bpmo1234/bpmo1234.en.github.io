@@ -771,7 +771,7 @@ input.dynamic:checked + div:before {
 }
 .loader {
   background: #151728;
-  background: radial-gradient(#222, #151728);
+  background: radial-gradient(#222, #20223b);
   bottom: 0;
   left: 0;
   overflow: hidden;
