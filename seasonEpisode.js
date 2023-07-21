@@ -137,7 +137,7 @@ const CurrTvshow = async (id) => {
     .then(data => {
       console.log('Fetch Results:', data);
       const id = data.imdb_id;
-      window.location.replace(`./playtv.html?id=${id}`);
+     // window.location.replace(`./playtv.html?id=${id}`);
 
     });
 
@@ -174,21 +174,23 @@ const Castfun = (castee) => {
 
 
 const releasedEpisode = function (curre) {
-  return `<a href="play.html?id=${fetcid}"><img class="episode_image"
-    src="https://image.tmdb.org/t/p/w500/${curre.still_path}" alt="${
-    curre.name
-  }">
-    <span class="runtime">${timeCon(curre.runtime)}</span>
-<div class="playsvg_container"><img class="playsvg" src="./resources/play-circle-fill.svg"
-        alt=""></div>
-</a>
-<div class="episode_detail">
-<h2 class="episode_title"> <span class="episodenumm">${
-    curre.episode_number
-  }.</span> ${curre.name}</h2>
-<p class="episode_description">${curre.overview}</p>
-</div>`;
-};
+    return `<a href=" https://autoembed.to/tv/tmdb/${fetcid}-${
+      curre.season_number
+    }-${curre.episode_number}"><img class="episode_image"
+      src="https://image.tmdb.org/t/p/w500/${curre.still_path}" alt="${
+      curre.name
+    }">
+      <span class="runtime">${timeCon(curre.runtime)}</span>
+  <div class="playsvg_container"><img class="playsvg" src="./resources/play-circle-fill.svg"
+          alt=""></div>
+  </a>
+  <div class="episode_detail">
+  <h2 class="episode_title"> <span class="episodenumm">${
+      curre.episode_number
+    }.</span> ${curre.name}</h2>
+  <p class="episode_description">${curre.overview}</p>
+  </div>`;
+  };
 
 const unreleasedEpisodev = function (curre) {
   return `<a class="unreleased_link" href=" https://autoembed.to/tv/tmdb/id=${fetcid}-${
