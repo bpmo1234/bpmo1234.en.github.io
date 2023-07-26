@@ -1,0 +1,1 @@
+import{a as u}from"/build/_shared/chunk-QLU6BERC.js";import{f as n}from"/build/_shared/chunk-JEBMXGTI.js";var e=n(u());function c(r){let t=(0,e.useRef)(r);return t.current=r,(0,e.useMemo)(()=>Object.freeze({get current(){return t.current}}),[])}export{c as a};

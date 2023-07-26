@@ -1,0 +1,1 @@
+import{a as o}from"/build/_shared/chunk-QLU6BERC.js";import{f as n}from"/build/_shared/chunk-JEBMXGTI.js";var e=n(o(),1),a=(0,e.createContext)(void 0);function d(t){let r=(0,e.useContext)(a);return t||r||"ltr"}function i(t,[r,c]){return Math.min(c,Math.max(r,t))}export{d as a,i as b};

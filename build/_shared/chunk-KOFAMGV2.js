@@ -1,0 +1,1 @@
+import{a as u}from"/build/_shared/chunk-QLU6BERC.js";import{f as r}from"/build/_shared/chunk-JEBMXGTI.js";var t=r(u());function n(){let e=(0,t.useRef)(!0);return(0,t.useEffect)(()=>{e.current=!1},[]),e.current}export{n as a};

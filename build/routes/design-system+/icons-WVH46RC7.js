@@ -1,0 +1,1 @@
+import{b as t}from"/build/_shared/chunk-QLU6BERC.js";import{f as e}from"/build/_shared/chunk-JEBMXGTI.js";var o=e(t()),f=()=>(0,o.jsx)(o.Fragment,{children:(0,o.jsx)("h2",{children:"Icons"})}),n=f;export{n as default};

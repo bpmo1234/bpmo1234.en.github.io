@@ -1,0 +1,1 @@
+import{b as l}from"/build/_shared/chunk-QLU6BERC.js";import{f}from"/build/_shared/chunk-JEBMXGTI.js";var e=f(l()),t=()=>(0,e.jsx)("div",{className:"flex w-full flex-col items-center justify-center px-3 sm:px-5",children:(0,e.jsx)("h4",{children:"In development"})}),o=t;export{o as default};
