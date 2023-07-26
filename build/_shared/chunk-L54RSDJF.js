@@ -1,1 +1,0 @@
-import{a as o}from"/build/_shared/chunk-QLU6BERC.js";import{f as s}from"/build/_shared/chunk-JEBMXGTI.js";var u=s(o(),1);function t(e){let r=(0,u.useRef)({value:e,previous:e});return(0,u.useMemo)(()=>(r.current.value!==e&&(r.current.previous=r.current.value,r.current.value=e),r.current.previous),[e])}export{t as a};
